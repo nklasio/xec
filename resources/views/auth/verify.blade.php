@@ -1,28 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+@section('header')
+    {{ __('Verify Your Email Address') }}
+@endsection
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
+@section('form')
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
-                </div>
-            </div>
+    @if (session('resent'))
+        <div class="alert alert-success" role="alert">
+            {{ __('A fresh verification link has been sent to your email address.') }}
         </div>
+    @endif
+    <div class="text-gray-800">
+        <span>
+            {{ __('Before proceeding, please check your email for a verification link.') }}
+        </span>
+
     </div>
-</div>
+
+    <form class="d-inline mt-6" method="POST" action="{{ route('verification.resend') }}">
+        @csrf
+        <span class="text-gray-700">
+            {{ __("Can't find your verification link?") }}
+        </span>
+        <div class="flex items-center justify-between mt-2">
+            <button
+                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit">
+                {{ __('Resend Verification Link') }}
+            </button>
+
+        </div>
+    </form>
+
 @endsection
