@@ -599,16 +599,6 @@ video {
   height: auto;
 }
 
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
-
 .container{
   width: 100%;
 }
@@ -11409,6 +11399,16 @@ html {
 
 .z-auto{
   z-index: auto;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
 }
 
 @media (min-width: 640px){
