@@ -18,7 +18,7 @@
 </head>
 <body class="bg-gray-300">
 <div id="app">
-    //TODO: add back partials
+    <!-- TODO: add back partials -->
     <nav class="bg-white w-full px-4 py-4 border-b shadow">
         <span class="text-2xl text-gray-900">{{ config('app.name', 'Laravel') }}</span>
     </nav>
